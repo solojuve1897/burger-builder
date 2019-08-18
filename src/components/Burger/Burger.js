@@ -7,17 +7,15 @@ const burger = (props) => {
     const ingredientsOutput = getIngredientsOutput(props.ingredients)
 
     function getIngredientsOutput (ingredients) {
-        let output = ingredients.map((ingredient) => {
+        const hasIngredients = ingredients.find((ingredient) => ingredient.count !== 0)
+        if (hasIngredients === undefined) { return <p>Please start adding ingredients!</p> }
+        
+        return ingredients.map((ingredient) => {
             if (ingredient.count === 0) return false
             return [...Array(ingredient.count)].map((_, i) => {
                 return <BurgerIngredient key={ingredient.type + i} type={ingredient.type} />
             })
         })
-        const hasIngredients = ingredients.find((ingredient) => ingredient.count !== 0 )
-        if (hasIngredients === undefined) {
-            output = <p>Please start adding ingredients!</p>
-        }
-        return output
     }
 
     return (
