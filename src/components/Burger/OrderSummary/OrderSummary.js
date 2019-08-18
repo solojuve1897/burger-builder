@@ -3,7 +3,7 @@ import React from 'react';
 import Aux from '../../../hoc/auxiliary'
 
 const orderSummary = (props) => {
-    const ingredientSummary = props.ingredients.map((ingredient) => (
+    const ingredientsSummary = props.ingredients.map((ingredient) => (
         <li key={ingredient.type}>
             <span style={{textTransform: 'capitalize'}}>{ingredient.type}</span>: {ingredient.count}
         </li>
@@ -13,7 +13,7 @@ const orderSummary = (props) => {
             <h3>Your Order</h3>
             <p>A delicious burger with the following ingredients:</p>
             <ul>
-                {ingredientSummary}
+                {ingredientsSummary}
             </ul>
             <p>Continue to Checkout?</p>
         </Aux>

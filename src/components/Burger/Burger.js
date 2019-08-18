@@ -13,8 +13,8 @@ const burger = (props) => {
                 return <BurgerIngredient key={ingredient.type + i} type={ingredient.type} />
             })
         })
-        const ingredientsIsEmpty = ingredients.find((ingredient) => ingredient.count !== 0 )
-        if (ingredientsIsEmpty === undefined) {
+        const hasIngredients = ingredients.find((ingredient) => ingredient.count !== 0 )
+        if (hasIngredients === undefined) {
             output = <p>Please start adding ingredients!</p>
         }
         return output
